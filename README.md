@@ -5,6 +5,12 @@ A [Homebrew](https://brew.sh) tap for [**dirigenta-ui**](https://github.com/bxt/
 ## Install
 
 ```sh
+brew install --cask bxt/dirigenta-ui/dirigenta-ui
+```
+
+Or as individual steps:
+
+```sh
 brew tap bxt/dirigenta-ui
 brew trust bxt/dirigenta-ui
 brew install dirigenta-ui
