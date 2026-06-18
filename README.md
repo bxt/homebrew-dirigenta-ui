@@ -17,18 +17,15 @@ it once per tap. If you skip it, `brew install` aborts with a
 
 ### Gatekeeper
 
-dirigenta-ui is not signed or notarized, so macOS blocks it the first time you
-try to open it. Homebrew prints these instructions after installing — clear the
-quarantine attribute once and you're done:
+dirigenta-ui is not signed or notarized. The cask clears the quarantine
+attribute automatically on install, so the app opens normally — no extra step
+needed.
+
+If macOS ever blocks it anyway (for example after you move the app), clear the
+attribute manually:
 
 ```sh
 xattr -r -d com.apple.quarantine "/Applications/dirigenta-ui.app"
-```
-
-Alternatively, skip quarantine at install time:
-
-```sh
-brew install --cask --no-quarantine dirigenta-ui
 ```
 
 ## Requirements

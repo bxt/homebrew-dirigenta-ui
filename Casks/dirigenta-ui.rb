@@ -16,6 +16,16 @@ cask "dirigenta-ui" do
 
   app "dirigenta-ui.app"
 
+  postflight do
+    # dirigenta-ui is unsigned/un-notarized, so macOS quarantines it and
+    # Gatekeeper blocks the first launch. Clear the attribute on install so the
+    # app opens without a manual override. must_succeed is false because xattr
+    # exits non-zero for nested files that never had the attribute.
+    system_command "/usr/bin/xattr",
+                   args:         ["-r", "-d", "com.apple.quarantine", "#{appdir}/dirigenta-ui.app"],
+                   must_succeed: false
+  end
+
   zap trash: [
     "~/Library/Application Support/dirigenta-ui",
     "~/Library/Caches/bxt.dirigenta-ui",
@@ -25,14 +35,11 @@ cask "dirigenta-ui" do
   ]
 
   caveats <<~EOS
-    #{token} is not signed or notarized, so macOS Gatekeeper blocks it the first
-    time you try to open it. After installing, clear the quarantine attribute:
+    #{token} is not signed or notarized. The quarantine attribute is cleared
+    automatically on install so the app can open. If macOS still blocks it (for
+    example after you move the app), clear it again manually:
 
       xattr -r -d com.apple.quarantine "#{appdir}/dirigenta-ui.app"
-
-    Or skip quarantine at install time instead:
-
-      brew install --cask --no-quarantine #{token}
 
     Requires macOS 26.2 or later.
   EOS
