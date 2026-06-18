@@ -1,6 +1,6 @@
 cask "dirigenta-ui" do
-  version "0.9.12"
-  sha256 "34be110695e9b6a9a6b52381f7b0b01688fd5ce13aff7d0ac40c32ff960fa5b0"
+  version "0.9.13"
+  sha256 "9e2d8e074166b91907bae8e9c3bb04e5e0985d08adbbed5a9d6db9b0a2abd15a"
 
   url "https://github.com/bxt/dirigenta-ui/releases/download/v#{version}/dirigenta-ui-v#{version}.zip"
   name "dirigenta-ui"
