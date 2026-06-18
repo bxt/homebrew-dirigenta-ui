@@ -28,11 +28,6 @@ attribute manually:
 xattr -r -d com.apple.quarantine "/Applications/dirigenta-ui.app"
 ```
 
-## Requirements
-
-- macOS 26.2 or later
-- An IKEA Dirigera hub on your local network
-
 ## Upgrade
 
 ```sh

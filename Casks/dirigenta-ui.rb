@@ -40,7 +40,5 @@ cask "dirigenta-ui" do
     example after you move the app), clear it again manually:
 
       xattr -r -d com.apple.quarantine "#{appdir}/dirigenta-ui.app"
-
-    Requires macOS 26.2 or later.
   EOS
 end
