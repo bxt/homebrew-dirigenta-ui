@@ -1,6 +1,6 @@
 cask "dirigenta-ui" do
-  version "0.9.14"
-  sha256 "296a2541b4deaed77708c711170e844639349059f9ae56dcaaf8ac2f502b5ff0"
+  version "0.9.15"
+  sha256 "ca48099f21272084d1335c84f7b7bb6b6b78fecdcd7d9d7e901addfbc63b2e65"
 
   url "https://github.com/bxt/dirigenta-ui/releases/download/v#{version}/dirigenta-ui-v#{version}.zip"
   name "dirigenta-ui"
@@ -12,7 +12,7 @@ cask "dirigenta-ui" do
     strategy :github_latest
   end
 
-  depends_on macos: :tahoe
+  depends_on macos: :sequoia
 
   app "dirigenta-ui.app"
 
