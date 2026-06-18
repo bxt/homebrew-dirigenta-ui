@@ -6,14 +6,14 @@ A [Homebrew](https://brew.sh) tap for [**dirigenta-ui**](https://github.com/bxt/
 
 ```sh
 brew tap bxt/dirigenta-ui
+brew trust bxt/dirigenta-ui
 brew install dirigenta-ui
 ```
 
-Or in a single command:
-
-```sh
-brew install bxt/dirigenta-ui/dirigenta-ui
-```
+The `brew trust` step is required: Homebrew refuses to load casks from
+third-party (non-official) taps until you explicitly trust them. You only run
+it once per tap. If you skip it, `brew install` aborts with a
+`Refusing to load cask … from untrusted tap` error.
 
 ### Gatekeeper
 
