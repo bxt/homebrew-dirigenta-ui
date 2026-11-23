@@ -16,14 +16,14 @@ cask "dirigenta-ui" do
 
   app "dirigenta-ui.app"
 
-  postflight do
+  postflight_steps do
     # dirigenta-ui is unsigned/un-notarized, so macOS quarantines it and
     # Gatekeeper blocks the first launch. Clear the attribute on install so the
     # app opens without a manual override. must_succeed is false because xattr
     # exits non-zero for nested files that never had the attribute.
-    system_command "/usr/bin/xattr",
-                   args:         ["-r", "-d", "com.apple.quarantine", "#{appdir}/dirigenta-ui.app"],
-                   must_succeed: false
+    run "/usr/bin/xattr",
+        args:         ["-r", "-d", "com.apple.quarantine", "{{appdir}}/dirigenta-ui.app"],
+        must_succeed: false
   end
 
   zap trash: [
